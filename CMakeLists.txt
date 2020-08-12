@@ -24,11 +24,13 @@ endif()
 # Define paths for includes and libraries
 # GStreamer 
 include_directories(
+	/opt/vc/include
         ${GST_INCLUDE_DIRS}
         ${GST_VIDEO_INCLUDE_DIRS}
 )
 
 link_directories(
+	/opt/vc/lib
         ${GST_LIBRARY_DIRS}
         ${GST_VIDEO_LIBRARY_DIRS}
 )
