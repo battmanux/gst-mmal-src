@@ -448,6 +448,19 @@ static gboolean gst_mmalsrc_start(GstBaseSrc * src) {
 	MMAL_PARAMETER_UINT32_T camera_iso = { { MMAL_PARAMETER_ISO,
 			sizeof(camera_iso) }, mmalsrc->iso };
 
+	bool vflip = false;
+	bool hflip = true;
+
+	MMAL_PARAMETER_MIRROR_T mirror = {{MMAL_PARAMETER_MIRROR, sizeof(MMAL_PARAMETER_MIRROR_T)}, MMAL_PARAM_MIRROR_NONE};
+
+	if (hflip && vflip)
+		mirror.value = MMAL_PARAM_MIRROR_BOTH;
+	else if (hflip)
+		mirror.value = MMAL_PARAM_MIRROR_HORIZONTAL;
+	else if (vflip)
+		mirror.value = MMAL_PARAM_MIRROR_VERTICAL;
+
+
 
 	MMAL_PARAMETER_EXPOSUREMODE_T camera_exposure;
 
@@ -504,6 +517,14 @@ static gboolean gst_mmalsrc_start(GstBaseSrc * src) {
 	if (status != MMAL_SUCCESS && status != MMAL_ENOSYS) {
 		GST_ERROR("Could not select camera : error %d", status);
 		goto error;
+	}
+
+	//- Camera exposure
+	status = mmal_port_parameter_set(camera->output[MMAL_CAMERA_VIDEO_PORT], &mirror.hdr);
+
+	if (status != MMAL_SUCCESS && status != MMAL_ENOSYS) {
+		GST_ERROR("Could not set hflip/vflip : error %d", status);
+		//goto error;
 	}
 
 	//- Camera exposure

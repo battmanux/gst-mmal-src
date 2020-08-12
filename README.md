@@ -1,3 +1,6 @@
+This fork adds a few option such as vertiacal / horizontal flip.
+It is done by reading source code from [Raspicam](https://github.com/raspberrypi/userland/blob/master/host_applications/linux/apps/raspicam/RaspiCamControl.c)
+
 # Camera acquisition on Raspberry Pi, shutter, ISO and exposure controls and sink video/x-raw in GStreamer pipeline
 
 **GStreamer element : *gstmmalsrc***
