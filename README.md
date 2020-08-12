@@ -17,15 +17,6 @@ install them with the provided script
 
 Otherwise, look for each package in your package manager and install them.
 
-Then you can install GStreamer 1.10 in your home directory (`${HOME}/gstreamer`)
-
-`./scripts/build_gstreamer.sh`
-
-If you want to re-start compilation from scratch or to remove GStreamer
-installation, you just have to remove this directory
-
-`rm -rf ~/gstreamer`
-
 ### How to compile the project
 
 First make sure you have the *cmake* package installed on your system.
@@ -50,7 +41,7 @@ You can check that this is a correct GStreamer plugin
 
 To install it with other plugins
 
-`cp libgstmmal.so ~/gstreamer/install/usr/local/lib/gstreamer-1.0/`
+`cp libgstmmal.so /usr/lib/arm-linux-gnueabihf/gstreamer-1.0/`
 
 To force detection/parsing of GStreamer plugin, you need to delete the cache.
 Note that the name of the registry may change depending on your system.
