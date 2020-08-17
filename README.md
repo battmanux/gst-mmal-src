@@ -46,7 +46,7 @@ To install it with other plugins
 To force detection/parsing of GStreamer plugin, you need to delete the cache.
 Note that the name of the registry may change depending on your system.
 
-`rm ~/.cache/gstreamer-1.0/registry.x86_64.bin`
+`rm ~/.cache/gstreamer-1.0/registry.arm.bin`
 
 Then you can check that the plugin is usable
 
